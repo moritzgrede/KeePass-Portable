@@ -6,13 +6,11 @@
 	</Meta>
 	<Application>
 		<RememberWorkingDirectories>false</RememberWorkingDirectories>
-		<WorkingDirectories />
 		<Start>
 			<OpenLastFile>false</OpenLastFile>
 			<CheckForUpdate>false</CheckForUpdate>
 			<CheckForUpdateConfigured>true</CheckForUpdateConfigured>
 		</Start>
-		<FileOpening />
 		<AutoSaveAfterEntryEdit>true</AutoSaveAfterEntryEdit>
 		<FileClosing>
 			<AutoSave>true</AutoSave>
@@ -20,8 +18,32 @@
 		<TriggerSystem>
 			<Triggers>
 				<Trigger>
-					<Guid>gi5DH6lHJUK5oLRr1oAbbw==</Guid>
-					<Name>Get-LocalDatabase</Name>
+					<Guid>eVvprlnoakiI4IpknJ6nSQ==</Guid>
+					<Name>Get-Databases</Name>
+					<TurnOffAfterAction>true</TurnOffAfterAction>
+					<Events>
+						<Event>
+							<TypeGuid>2PMe6cxpSBuJxfzi6ktqlw==</TypeGuid>
+							<Parameters />
+						</Event>
+					</Events>
+					<Conditions />
+					<Actions>
+						<Action>
+							<TypeGuid>2uX4OwcwTBOe7y66y27kxw==</TypeGuid>
+							<Parameters>
+								<Parameter>{APPDIR}\Scripts\Get-Databases.cmd</Parameter>
+								<Parameter />
+								<Parameter>True</Parameter>
+								<Parameter>0</Parameter>
+								<Parameter />
+							</Parameters>
+						</Action>
+					</Actions>
+				</Trigger>
+				<Trigger>
+					<Guid>F57Jns5r5Eic+wrkZ0HEaw==</Guid>
+					<Name>Open-PersonalDatabase</Name>
 					<TurnOffAfterAction>true</TurnOffAfterAction>
 					<Events>
 						<Event>
@@ -33,32 +55,36 @@
 						<Condition>
 							<TypeGuid>y0qeNFaMTJWtZ00coQQZvA==</TypeGuid>
 							<Parameters>
-								<Parameter>%USERPROFILE%\family-local.kdbx</Parameter>
+								<Parameter>%USERPROFILE%\moritz-local.kdbx</Parameter>
 							</Parameters>
-							<Negate>true</Negate>
+							<Negate>false</Negate>
 						</Condition>
 					</Conditions>
 					<Actions>
 						<Action>
-							<TypeGuid>2uX4OwcwTBOe7y66y27kxw==</TypeGuid>
+							<TypeGuid>/UFV1XmPRPqrifL4cO+UuA==</TypeGuid>
 							<Parameters>
-								<Parameter>{APPDIR}\Scripts\Get-FamilyLocal.cmd</Parameter>
+								<Parameter>%USERPROFILE%\moritz-local.kdbx</Parameter>
 								<Parameter />
-								<Parameter>True</Parameter>
-								<Parameter>0</Parameter>
 								<Parameter />
+								<Parameter />
+								<Parameter />
+								<Parameter>False</Parameter>
 							</Parameters>
 						</Action>
 					</Actions>
 				</Trigger>
 				<Trigger>
-					<Guid>F57Jns5r5Eic+wrkZ0HEaw==</Guid>
-					<Name>Open-LocalDatabase</Name>
+					<Guid>OSfCZHdItUqIP9k72TDs+g==</Guid>
+					<Name>Open-FamilyDatabase</Name>
 					<TurnOffAfterAction>true</TurnOffAfterAction>
 					<Events>
 						<Event>
-							<TypeGuid>2PMe6cxpSBuJxfzi6ktqlw==</TypeGuid>
-							<Parameters />
+							<TypeGuid>5f8TBoW4QYm5BvaeKztApw==</TypeGuid>
+							<Parameters>
+								<Parameter>1</Parameter>
+								<Parameter>moritz</Parameter>
+							</Parameters>
 						</Event>
 					</Events>
 					<Conditions>
@@ -77,7 +103,7 @@
 								<Parameter>%USERPROFILE%\family-local.kdbx</Parameter>
 								<Parameter />
 								<Parameter />
-								<Parameter />
+								<Parameter>{REF:P@T:family-local.kdbx}</Parameter>
 								<Parameter />
 								<Parameter>False</Parameter>
 							</Parameters>
@@ -111,9 +137,9 @@
 						<Action>
 							<TypeGuid>Iq135Bd4Tu2ZtFcdArOtTQ==</TypeGuid>
 							<Parameters>
-								<Parameter>{URL}</Parameter>
-								<Parameter>{USERNAME}</Parameter>
-								<Parameter>{PASSWORD}</Parameter>
+								<Parameter>{REF:A@T:{DB_NAME}}</Parameter>
+								<Parameter>{REF:U@T:{DB_NAME}}</Parameter>
+								<Parameter>{REF:P@T:{DB_NAME}}</Parameter>
 							</Parameters>
 						</Action>
 						<Action>
@@ -131,24 +157,11 @@
 					<TurnOffAfterAction>true</TurnOffAfterAction>
 					<Events>
 						<Event>
-							<TypeGuid>bES7XfGLTA2IzmXm6a0pig==</TypeGuid>
-							<Parameters>
-								<Parameter>1</Parameter>
-								<Parameter>False</Parameter>
-							</Parameters>
+							<TypeGuid>2PMe6cxpSBuJxfzi6ktqlw==</TypeGuid>
+							<Parameters />
 						</Event>
 					</Events>
-					<Conditions>
-						<Condition>
-							<TypeGuid>uQ/4B3M4T+q7LrwL6juYww==</TypeGuid>
-							<Parameters>
-								<Parameter>{NOTES}</Parameter>
-								<Parameter>1</Parameter>
-								<Parameter>TriggerSync</Parameter>
-							</Parameters>
-							<Negate>false</Negate>
-						</Condition>
-					</Conditions>
+					<Conditions />
 					<Actions>
 						<Action>
 							<TypeGuid>lYGPRZlmSYirPoboGpZoNg==</TypeGuid>
@@ -158,65 +171,11 @@
 								<Parameter>Synchronize local and master database</Parameter>
 							</Parameters>
 						</Action>
-						<Action>
-							<TypeGuid>tkamn96US7mbrjykfswQ6g==</TypeGuid>
-							<Parameters>
-								<Parameter>Remove-Sync</Parameter>
-								<Parameter>1</Parameter>
-							</Parameters>
-						</Action>
-					</Actions>
-				</Trigger>
-				<Trigger>
-					<Guid>VR5d7xiC2kuQblpqTdhgkw==</Guid>
-					<Name>Remove-Sync</Name>
-					<InitiallyOn>false</InitiallyOn>
-					<TurnOffAfterAction>true</TurnOffAfterAction>
-					<Events>
-						<Event>
-							<TypeGuid>bES7XfGLTA2IzmXm6a0pig==</TypeGuid>
-							<Parameters>
-								<Parameter>1</Parameter>
-								<Parameter>False</Parameter>
-							</Parameters>
-						</Event>
-					</Events>
-					<Conditions>
-						<Condition>
-							<TypeGuid>uQ/4B3M4T+q7LrwL6juYww==</TypeGuid>
-							<Parameters>
-								<Parameter>{NOTES}</Parameter>
-								<Parameter>1</Parameter>
-								<Parameter>TriggerSync</Parameter>
-							</Parameters>
-							<Negate>true</Negate>
-						</Condition>
-					</Conditions>
-					<Actions>
-						<Action>
-							<TypeGuid>1m1BomyyRLqkSApB+glIeQ==</TypeGuid>
-							<Parameters>
-								<Parameter>syncDB</Parameter>
-							</Parameters>
-						</Action>
-						<Action>
-							<TypeGuid>tkamn96US7mbrjykfswQ6g==</TypeGuid>
-							<Parameters>
-								<Parameter>Add-Sync</Parameter>
-								<Parameter>1</Parameter>
-							</Parameters>
-						</Action>
 					</Actions>
 				</Trigger>
 			</Triggers>
 		</TriggerSystem>
-		<PluginCompatibility>
-			<Item>@5STwk/ltb0oDEka/FeCweAz0iUQwaa1mqjYbX1yN76M=@2.47.0.21109@1</Item>
-			<Item>@reZlzIT7gH3YEp2tgCs4NfahXD6yizxhGBLwrovcfoM=@2.46.0.18879@1</Item>
-			<Item>@5STwk/ltb0oDEka/FeCweAz0iUQwaa1mqjYbX1yN76M=@2.46.0.18879@1</Item>
-		</PluginCompatibility>
 	</Application>
-	<Logging />
 	<MainWindow>
 		<DropToBackAfterClipboardCopy>true</DropToBackAfterClipboardCopy>
 		<QuickFindDerefData>true</QuickFindDerefData>
@@ -225,7 +184,6 @@
 		<FocusQuickFindOnUntray>true</FocusQuickFindOnUntray>
 		<CopyUrlsInsteadOfOpening>true</CopyUrlsInsteadOfOpening>
 		<EntryListAutoResizeColumns>true</EntryListAutoResizeColumns>
-		<ListGrouping>1</ListGrouping>
 		<ShowEntriesOfSubGroups>true</ShowEntriesOfSubGroups>
 	</MainWindow>
 	<UI>
@@ -234,7 +192,6 @@
 		</TrayIcon>
 		<Hiding>
 			<RememberHidingPasswordsMain>false</RememberHidingPasswordsMain>
-			<HideInEntryWindow>false</HideInEntryWindow>
 		</Hiding>
 		<RepeatPasswordOnlyWhenHidden>false</RepeatPasswordOnlyWhenHidden>
 		<StandardFont>
@@ -277,13 +234,12 @@
 			<ChangeMasterKeyNoKey>false</ChangeMasterKeyNoKey>
 		</Policy>
 		<MasterPassword>
-			<MinimumLength>10</MinimumLength>
-			<MinimumQuality>80</MinimumQuality>
+			<MinimumLength>0</MinimumLength>
+			<MinimumQuality>0</MinimumQuality>
 		</MasterPassword>
 		<MasterKeyOnSecureDesktop>true</MasterKeyOnSecureDesktop>
 		<ClipboardClearAfterSeconds>20</ClipboardClearAfterSeconds>
 	</Security>
-	<Native />
 	<PasswordGenerator>
 		<AutoGeneratedPasswordsProfile>
 			<GeneratorType>CharSet</GeneratorType>
@@ -294,15 +250,20 @@
 			<Name>(Custom)</Name>
 			<GeneratorType>CharSet</GeneratorType>
 			<Length>25</Length>
-			<CharSetRanges>ULDS____B_</CharSetRanges>
+			<CharSetRanges>ULD_______</CharSetRanges>
 		</LastUsedProfile>
 		<UserProfiles>
 			<Profile>
-				<Name>Custom</Name>
+				<Name>Characters + Digits</Name>
 				<GeneratorType>CharSet</GeneratorType>
-				<Length>16</Length>
+				<Length>25</Length>
+				<CharSetRanges>ULD_______</CharSetRanges>
+			</Profile>
+			<Profile>
+				<Name>Default</Name>
+				<GeneratorType>CharSet</GeneratorType>
+				<Length>25</Length>
 				<CharSetRanges>ULDS_mu_B_</CharSetRanges>
-				<ExcludeLookAlike>true</ExcludeLookAlike>
 			</Profile>
 			<Profile>
 				<Name>Strato</Name>
@@ -313,18 +274,6 @@
 			</Profile>
 		</UserProfiles>
 	</PasswordGenerator>
-	<Search>
-		<LastUsedProfile>
-			<SearchMode>Simple</SearchMode>
-			<ComparisonMode>InvariantCultureIgnoreCase</ComparisonMode>
-		</LastUsedProfile>
-		<UserProfiles />
-	</Search>
-	<Defaults>
-		<OptionsTabIndex>3</OptionsTabIndex>
-		<RememberKeySources>false</RememberKeySources>
-		<KeySources />
-	</Defaults>
 	<Integration>
 		<UrlSchemeOverrides>
 			<BuiltInOverridesEnabled>1</BuiltInOverridesEnabled>
@@ -347,5 +296,4 @@
 		<AutoTypeCancelOnWindowChange>true</AutoTypeCancelOnWindowChange>
 		<AutoTypeAbortOnWindows />
 	</Integration>
-	<Custom />
 </Configuration>
