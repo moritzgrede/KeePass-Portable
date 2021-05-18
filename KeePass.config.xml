@@ -75,42 +75,6 @@
 					</Actions>
 				</Trigger>
 				<Trigger>
-					<Guid>OSfCZHdItUqIP9k72TDs+g==</Guid>
-					<Name>Open-FamilyDatabase</Name>
-					<TurnOffAfterAction>true</TurnOffAfterAction>
-					<Events>
-						<Event>
-							<TypeGuid>5f8TBoW4QYm5BvaeKztApw==</TypeGuid>
-							<Parameters>
-								<Parameter>1</Parameter>
-								<Parameter>moritz</Parameter>
-							</Parameters>
-						</Event>
-					</Events>
-					<Conditions>
-						<Condition>
-							<TypeGuid>y0qeNFaMTJWtZ00coQQZvA==</TypeGuid>
-							<Parameters>
-								<Parameter>%USERPROFILE%\family-local.kdbx</Parameter>
-							</Parameters>
-							<Negate>false</Negate>
-						</Condition>
-					</Conditions>
-					<Actions>
-						<Action>
-							<TypeGuid>/UFV1XmPRPqrifL4cO+UuA==</TypeGuid>
-							<Parameters>
-								<Parameter>%USERPROFILE%\family-local.kdbx</Parameter>
-								<Parameter />
-								<Parameter />
-								<Parameter>{REF:P@T:family-local.kdbx}</Parameter>
-								<Parameter />
-								<Parameter>False</Parameter>
-							</Parameters>
-						</Action>
-					</Actions>
-				</Trigger>
-				<Trigger>
 					<Guid>ArR+uPPCG0O4yYMmveQXXA==</Guid>
 					<Name>Do-Sync</Name>
 					<Events>
@@ -140,6 +104,74 @@
 								<Parameter>{REF:A@T:{DB_NAME}}</Parameter>
 								<Parameter>{REF:U@T:{DB_NAME}}</Parameter>
 								<Parameter>{REF:P@T:{DB_NAME}}</Parameter>
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>D5prW87VRr65NO2xP5RIIg==</TypeGuid>
+							<Parameters>
+								<Parameter>%USERPROFILE%\family-sync.kdbx</Parameter>
+								<Parameter>KeePass KDBX (2.x)</Parameter>
+								<Parameter>;Family</Parameter>
+								<Parameter />
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>2uX4OwcwTBOe7y66y27kxw==</TypeGuid>
+							<Parameters>
+								<Parameter>{APPDIR}\KPScript.exe</Parameter>
+								<Parameter>-c:ChangeMasterKey "%USERPROFILE%\family-sync.kdbx" -guikeyprompt -newpw:{REF:P@I:E3B3FBA974AA0740B9133577AA409C5C}</Parameter>
+								<Parameter>True</Parameter>
+								<Parameter>1</Parameter>
+								<Parameter />
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>/UFV1XmPRPqrifL4cO+UuA==</TypeGuid>
+							<Parameters>
+								<Parameter>%USERPROFILE%\family-local.kdbx</Parameter>
+								<Parameter />
+								<Parameter />
+								<Parameter>{REF:P@I:E3B3FBA974AA0740B9133577AA409C5C}</Parameter>
+								<Parameter />
+								<Parameter>False</Parameter>
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>P7gzLdYWToeZBWTbFkzWJg==</TypeGuid>
+							<Parameters>
+								<Parameter>family-local.kdbx</Parameter>
+								<Parameter>0</Parameter>
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>Iq135Bd4Tu2ZtFcdArOtTQ==</TypeGuid>
+							<Parameters>
+								<Parameter>%USERPROFILE%\family-sync.kdbx</Parameter>
+								<Parameter />
+								<Parameter />
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>Iq135Bd4Tu2ZtFcdArOtTQ==</TypeGuid>
+							<Parameters>
+								<Parameter>{REF:A@T:{DB_NAME}}</Parameter>
+								<Parameter>{REF:U@T:{DB_NAME}}</Parameter>
+								<Parameter>{REF:P@T:{DB_NAME}}</Parameter>
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>W79FnVS/Sb2X+yzuX5kKZw==</TypeGuid>
+							<Parameters />
+						</Action>
+						<Action>
+							<TypeGuid>gOZ/TnLxQEWRdh8sI9jsvg==</TypeGuid>
+							<Parameters>
+								<Parameter>%USERPROFILE%\family-local.kdbx</Parameter>
+								<Parameter>KeePass KDBX (2.x)</Parameter>
+								<Parameter>5</Parameter>
+								<Parameter>{REF:P@I:E3B3FBA974AA0740B9133577AA409C5C}</Parameter>
+								<Parameter />
+								<Parameter>False</Parameter>
 							</Parameters>
 						</Action>
 						<Action>
