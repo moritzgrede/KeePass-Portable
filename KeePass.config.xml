@@ -296,4 +296,18 @@
 		<AutoTypeCancelOnWindowChange>true</AutoTypeCancelOnWindowChange>
 		<AutoTypeAbortOnWindows />
 	</Integration>
+	<Custom>
+		<Item>
+			<Key>KeePassOTP.Hotkey</Key>
+			<Value>Y, Control, Alt</Value>
+		</Item>
+		<Item>
+			<Key>KeePassOTP.CheckTFA</Key>
+			<Value>true</Value>
+		</Item>
+		<Item>
+			<Key>KeePassOTP.KPOTPAutoSubmit</Key>
+			<Value>false</Value>
+		</Item>
+	</Custom>
 </Configuration>
