@@ -216,7 +216,6 @@
 		<FocusQuickFindOnUntray>true</FocusQuickFindOnUntray>
 		<CopyUrlsInsteadOfOpening>true</CopyUrlsInsteadOfOpening>
 		<EntryListAutoResizeColumns>true</EntryListAutoResizeColumns>
-		<ShowEntriesOfSubGroups>true</ShowEntriesOfSubGroups>
 	</MainWindow>
 	<UI>
 		<TrayIcon>
